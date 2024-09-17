@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pending Requests</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            width: 100%; /* 确保导航栏占据全宽 */
+            margin-bottom: 20px;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #ffffff;
+            padding: 10px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .top-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background-color: #008d6e;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 15% 100%);
+            z-index: 0;
+        }
+
+        .logo img {
+            height: 120px; /* 放大Logo */
+            z-index: 1;
+        }
+
+        .welcome-section {
+            background-color: transparent;
+            color: white;
+            padding: 5px 20px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            z-index: 1;
+        }
+
+        .welcome-section p {
+            margin: 0;
+            font-size: 18px;
+            z-index: 1;
+            text-align: right;
+        }
+
+        .title-section {
+            background-color: #005f7f;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .title-section h1 {
+            margin: 0;
+            color: white;
+            font-size: 36px;
+        }
+
+        h1, h2, h3 {
+            color: #333;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #005f7f;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .btn {
+            padding: 10px;
+            background-color: #005f7f;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .action-btn {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 3px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .approve-btn {
+            background-color: #28a745;
+        }
+
+        .approve-btn:hover {
+            background-color: #218838;
+        }
+
+        .reject-btn {
+            background-color: #dc3545;
+        }
+
+        .reject-btn:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="top-bar">
+            <div class="logo">
+                <img src="/static/UIC.png" alt="联合国际学院"> <!-- 确保此处链接到你的Logo图片 -->
+            </div>
+            <div class="welcome-section">
+                <p>Welcome, {{ session['user_email'] }}!<br>Your type is: {{ session['user_type'] }}</p>
+            </div>
+        </div>
+        <div class="title-section">
+            <h1>UIC LLM Homework System</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>Pending Requests</h1>
+        <a href="/user/admin_homepage" class="btn btn-secondary mb-3">Back</a>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Question Text</th>
+                <th>LLM Used</th>
+                <th>Score</th>
+                <th>Actions</th>
+            </tr>
+            {% for req in pending_requests %}
+            <tr>
+                <td>{{ req.request_id }}</td>
+                <td>{{ req.qtext }}</td>
+                <td>{{ req.llm_used }}</td>
+                <td>{{ req.score }}</td>
+                <td>
+                    <form method="post" action="{{ url_for('Request.admin_pending_requests') }}">
+                        <input type="hidden" name="request_id" value="{{ req.request_id }}">
+                        <button type="submit" name="action" value="approve" class="action-btn approve-btn">Approve</button>
+                        <button type="submit" name="action" value="reject" class="action-btn reject-btn">Reject</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

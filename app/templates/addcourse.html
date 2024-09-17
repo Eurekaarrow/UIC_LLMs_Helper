@@ -1,0 +1,374 @@
+
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <title>create AssignQ</title>-->
+<!--    <link rel="stylesheet" href="static/create_assignq.css">-->
+<!--    <style>-->
+<!--        body {-->
+<!--            font-family: Arial, sans-serif;-->
+<!--            margin: 0; /* 将margin设为0以避免导航栏受影响 */-->
+<!--            padding: 0;-->
+<!--        }-->
+
+<!--        header {-->
+<!--            width: 100%; /* 确保导航栏占据全宽 */-->
+<!--            margin-bottom: 20px;-->
+<!--        }-->
+
+<!--        .top-bar {-->
+<!--            display: flex;-->
+<!--            justify-content: space-between;-->
+<!--            align-items: center;-->
+<!--            background-color: #ffffff;-->
+<!--            padding: 10px 20px;-->
+<!--            position: relative;-->
+<!--            overflow: hidden;-->
+<!--        }-->
+
+<!--        .top-bar::after {-->
+<!--            content: '';-->
+<!--            position: absolute;-->
+<!--            top: 0;-->
+<!--            right: 0;-->
+<!--            width: 50%;-->
+<!--            height: 100%;-->
+<!--            background-color: #008d6e;-->
+<!--            clip-path: polygon(0 0, 100% 0, 100% 100%, 15% 100%);-->
+<!--            z-index: 0;-->
+<!--        }-->
+
+<!--        .logo img {-->
+<!--            height: 120px; /* 放大Logo */-->
+<!--            z-index: 1;-->
+<!--        }-->
+
+<!--        .welcome-section {-->
+<!--            background-color: transparent;-->
+<!--            color: white;-->
+<!--            padding: 5px 20px;-->
+<!--            display: flex;-->
+<!--            justify-content: flex-end;-->
+<!--            align-items: center;-->
+<!--            z-index: 1;-->
+<!--        }-->
+
+<!--        .welcome-section p {-->
+<!--            margin: 0;-->
+<!--            font-size: 18px;-->
+<!--            z-index: 1;-->
+<!--            text-align: right;-->
+<!--        }-->
+
+<!--        .title-section {-->
+<!--            background-color: #005f7f;-->
+<!--            text-align: center;-->
+<!--            padding: 20px 0;-->
+<!--        }-->
+
+<!--        .title-section h1 {-->
+<!--            margin: 0;-->
+<!--            color: white;-->
+<!--            font-size: 36px;-->
+<!--        }-->
+
+<!--        h1, h2, h3 {-->
+<!--            color: #333;-->
+<!--            text-align: center;-->
+<!--        }-->
+
+<!--        form {-->
+<!--            display: flex;-->
+<!--            flex-direction: column;-->
+<!--            max-width: 800px; /* 增加表单最大宽度 */-->
+<!--            width: 100%; /* 使表单宽度占满父容器 */-->
+<!--            margin: 0 auto 20px auto;-->
+<!--            padding: 20px; /* 添加表单内部边距 */-->
+<!--            background-color: #f9f9f9; /* 添加表单背景颜色 */-->
+<!--            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 添加阴影效果 */-->
+<!--            border-radius: 10px; /* 添加圆角 */-->
+<!--            box-sizing: border-box; /* 确保padding包含在宽度内 */-->
+<!--        }-->
+
+<!--        form label {-->
+<!--            margin-bottom: 10px;-->
+<!--            font-weight: bold;-->
+<!--        }-->
+
+<!--        form input,-->
+<!--        form textarea,-->
+<!--        form select {-->
+<!--            padding: 10px;-->
+<!--            font-size: 16px;-->
+<!--            margin-bottom: 15px; /* 增加元素之间的间距 */-->
+<!--            border: 1px solid #ddd; /* 添加边框 */-->
+<!--            border-radius: 5px; /* 添加圆角 */-->
+<!--            box-sizing: border-box; /* 确保padding包含在宽度内 */-->
+<!--            width: 100%; /* 确保输入框宽度占满父容器 */-->
+<!--        }-->
+
+<!--        form button {-->
+<!--            padding: 10px;-->
+<!--            background-color: #005f7f;-->
+<!--            color: white;-->
+<!--            border: none;-->
+<!--            cursor: pointer;-->
+<!--            font-size: 16px;-->
+<!--            border-radius: 5px; /* 添加圆角 */-->
+<!--            transition: background-color 0.3s ease; /* 添加过渡效果 */-->
+<!--            width: 100%; /* 确保按钮宽度占满父容器 */-->
+<!--            box-sizing: border-box; /* 确保padding包含在宽度内 */-->
+<!--        }-->
+
+<!--        form button:hover {-->
+<!--            background-color: #0056b3;-->
+<!--        }-->
+
+<!--        .btn {-->
+<!--            padding: 10px;-->
+<!--            background-color: #005f7f;-->
+<!--            color: white;-->
+<!--            text-decoration: none;-->
+<!--            border-radius: 5px;-->
+<!--            display: inline-block;-->
+<!--            margin-bottom: 20px;-->
+<!--            text-align: center;-->
+<!--        }-->
+
+<!--        .btn:hover {-->
+<!--            background-color: #0056b3;-->
+<!--        }-->
+
+<!--        .btn-container {-->
+<!--            display: flex;-->
+<!--            justify-content: center;-->
+<!--            margin-bottom: 20px;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--    <header class="header">-->
+<!--        <div class="top-bar">-->
+<!--            <div class="logo">-->
+<!--                <img src="/static/UIC.png" alt="联合国际学院"> &lt;!&ndash; 确保此处链接到你的Logo图片 &ndash;&gt;-->
+<!--            </div>-->
+<!--            <div class="welcome-section">-->
+<!--                <p>Welcome, {{ session['user_email'] }}!<br>Your type is: {{ session['user_type'] }}</p>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="title-section">-->
+<!--            <h1>UIC LLM Homework System</h1>-->
+<!--        </div>-->
+<!--    </header>-->
+
+<!--    <h1>Create New Course</h1>-->
+<!--    &lt;!&ndash; 返回按钮 &ndash;&gt;-->
+<!--    <div class="btn-container">-->
+<!--        <a href="/user/teacher_homepage" class="btn btn-secondary mb-3">Back</a>-->
+<!--    </div>-->
+
+<!--    <form method="post">-->
+<!--        <div class="mb-3">-->
+<!--            <label for="course_number" class="form-label">Course Number:</label>-->
+<!--            <input type="text" name="course_number" id="course_number" class="form-control" required>-->
+<!--        </div>-->
+<!--        <div class="mb-3">-->
+<!--            <label for="course_name" class="form-label">Course Name:</label>-->
+<!--            <input type="text" name="course_name" id="course_name" class="form-control" required>-->
+<!--        </div>-->
+<!--        <div class="mb-3">-->
+<!--            <label for="course_category" class="form-label">Course Category:</label>-->
+<!--            <input type="text" name="course_category" id="course_category" class="form-control" required>-->
+<!--        </div>-->
+<!--        <button type="submit" class="btn btn-success w-100">Submit</button>-->
+<!--    </form>-->
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Save Personal Experiment</title>
+    <link rel="stylesheet" href="static/create_assignq.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0; /* 将margin设为0以避免导航栏受影响 */
+            padding: 0;
+        }
+
+        header {
+            width: 100%; /* 确保导航栏占据全宽 */
+            margin-bottom: 20px;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #ffffff;
+            padding: 10px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .top-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background-color: #008d6e;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 15% 100%);
+            z-index: 0;
+        }
+
+        .logo img {
+            height: 120px; /* 放大Logo */
+            z-index: 1;
+        }
+
+        .welcome-section {
+            background-color: transparent;
+            color: white;
+            padding: 5px 20px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            z-index: 1;
+        }
+
+        .welcome-section p {
+            margin: 0;
+            font-size: 18px;
+            z-index: 1;
+            text-align: right;
+        }
+
+        .title-section {
+            background-color: #005f7f;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .title-section h1 {
+            margin: 0;
+            color: white;
+            font-size: 36px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 800px; /* 增加表单最大宽度 */
+            width: 100%; /* 使表单宽度占满父容器 */
+            margin: 0 auto 20px auto;
+            padding: 20px; /* 添加表单内部边距 */
+            background-color: #f9f9f9; /* 添加表单背景颜色 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 添加阴影效果 */
+            border-radius: 10px; /* 添加圆角 */
+            box-sizing: border-box; /* 确保padding包含在宽度内 */
+        }
+
+        form label {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        form input,
+        form select {
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 15px; /* 增加元素之间的间距 */
+            border: 1px solid #ddd; /* 添加边框 */
+            border-radius: 5px; /* 添加圆角 */
+            box-sizing: border-box; /* 确保padding包含在宽度内 */
+            width: 100%; /* 确保输入框宽度占满父容器 */
+        }
+
+        form button {
+            padding: 10px;
+            background-color: #005f7f;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px; /* 添加圆角 */
+            transition: background-color 0.3s ease; /* 添加过渡效果 */
+            width: 100%; /* 确保按钮宽度占满父容器 */
+            box-sizing: border-box; /* 确保padding包含在宽度内 */
+        }
+
+        form button:hover {
+            background-color: #0056b3;
+        }
+
+        .btn {
+            padding: 10px;
+            background-color: #005f7f;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="top-bar">
+            <div class="logo">
+                <img src="/static/UIC.png" alt="联合国际学院"> <!-- 确保此处链接到你的Logo图片 -->
+            </div>
+            <div class="welcome-section">
+                <p>Welcome, {{ session['user_email'] }}!<br>Your type is: {{ session['user_type'] }}</p>
+            </div>
+        </div>
+        <div class="title-section">
+            <h1>UIC LLM Homework System</h1>
+        </div>
+    </header>
+
+    <h1>Create New Course</h1>
+    <!-- 返回按钮 -->
+    <div class="btn-container">
+        <a href="/user/teacher_homepage" class="btn btn-secondary mb-3">Back</a>
+    </div>
+
+    <form method="post">
+        <div class="mb-3">
+            <label for="course_number" class="form-label">Course Number:</label>
+                        <input type="text" name="course_number" id="course_number" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="course_name" class="form-label">Course Name:</label>
+            <input type="text" name="course_name" id="course_name" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="course_category" class="form-label">Course Category:</label>
+            <select name="course_category" id="course_category" class="form-control" required>
+                <option value="Computers and programming">Computers and programming (e.g., Structure Programming, OS, Software Engineering)</option>
+                <option value="Math">Math (e.g., Calculus, Linear Algebra, Discrete Structure)</option>
+                <option value="Writing">Writing (e.g., Ethics, Chinese)</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-success w-100">Submit</button>
+    </form>
+</body>
+</html>
+

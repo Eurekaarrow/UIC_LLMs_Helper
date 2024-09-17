@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="/static/create_assignq.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #ffffff;
+            padding: 10px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .top-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background-color: #008d6e;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 15% 100%);
+            z-index: 0;
+        }
+
+        .logo img {
+            height: 120px;
+            z-index: 1;
+        }
+
+        .welcome-section {
+            background-color: transparent;
+            color: white;
+            padding: 5px 20px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            z-index: 1;
+        }
+
+        .welcome-section p {
+            margin: 0;
+            font-size: 18px;
+            z-index: 1;
+            text-align: right;
+        }
+
+        .title-section {
+            background-color: #005f7f;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .title-section h1 {
+            margin: 0;
+            color: white;
+            font-size: 36px;
+        }
+
+        h1, h2, h3 {
+            color: #333;
+            text-align: center;
+        }
+
+        .details-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .details-container p {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+
+        .details-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            padding: 10px;
+            background-color: #005f7f;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .search-results {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .search-results ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .search-results li {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #e9f5f2;
+            border: 1px solid #d4ece7;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .search-results li:hover {
+            background-color: #d4ece7;
+        }
+
+        .search-results a {
+            text-decoration: none;
+            color: #005f7f;
+            font-weight: bold;
+        }
+
+        .search-results a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="top-bar">
+            <div class="logo">
+                <img src="/static/UIC.png" alt="联合国际学院">
+            </div>
+            <div class="welcome-section">
+                <p>Welcome, {{ session['user_email'] }}!<br>Your type is: {{ session['user_type'] }}</p>
+            </div>
+        </div>
+        <div class="title-section">
+            <h1>UIC LLM Homework System</h1>
+        </div>
+    </header>
+
+    <h1>{{ header }}</h1>
+    <div class="btn-container">
+        <a href="{{ url_for('HelpTopic.SearchHelpTopic') }}" class="btn btn-secondary mb-3">Back</a>
+    </div>
+
+    <div class="search-results">
+        <h2>{{ subtopic.topic }} - {{ subtopic.subtopic }}</h2>
+        <ul>
+            {% for question in topic_helps_questions %}
+                <li><a href="{{ url_for('HelpTopic.QuestionDetailsByQuestion', subtopic_id=subtopic.id, question=question) }}">{{ question }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

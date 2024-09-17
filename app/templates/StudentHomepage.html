@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Homepage</title>
+    <link rel="stylesheet" href="/static/Student_Homepage.css"> <!-- 确保此处链接到你的CSS文件 -->
+    <style>
+        .header {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #ffffff;
+            padding: 10px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .top-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background-color: #008d6e;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 15% 100%);
+            z-index: 0;
+        }
+
+        .logo img {
+            height: 120px; /* 放大Logo */
+            z-index: 1;
+        }
+
+        .welcome-section {
+            background-color: transparent;
+            color: white;
+            padding: 5px 20px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            z-index: 1;
+        }
+
+        .welcome-section p {
+            margin: 0;
+            font-size: 18px;
+            z-index: 1;
+        }
+
+        .title-section {
+            background-color: #005f7f;
+            text-align: center;
+            padding: 20px 0;
+            position: relative; /* 使其成为包含定位 */
+        }
+
+        .title-section h1 {
+            margin: 0;
+            color: white;
+            font-size: 36px;
+        }
+
+        .logout-link {
+            background-color: #d9534f;
+            border-color: #d9534f;
+            color: white; /* 保持登出按钮的颜色 */
+            text-decoration: none;
+            padding: 10px 20px; /* 调整按钮大小 */
+            font-size: 14px; /* 调整字体大小 */
+            border-radius: 5px; /* 添加圆角 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            position: absolute; /* 绝对定位 */
+            top: 20px; /* 距离顶部20px */
+            right: 20px; /* 距离右侧20px */
+        }
+
+        .logout-link:hover {
+            background-color: #c9302c;
+            border-color: #c9302c;
+        }
+
+        .video-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+            background-color: #f4f4f4;
+            padding: 0;
+        }
+
+        .video-section video {
+            height: 100%;
+            width: auto;
+        }
+
+        .button-container {
+            display: flex;
+            flex-wrap: wrap; /* 设置为换行 */
+            justify-content: center;
+            max-width: 1200px; /* 容器最大宽度设置为1200px */
+            margin: 30px auto; /* 居中容器 */
+        }
+
+        .button-wrapper {
+            display: flex;
+            align-items: center;
+            margin: 20px;
+            width: auto; /* 自动调整宽度以适应内容 */
+            height: 200px; /* 固定高度 */
+        }
+
+        .button-container .button {
+            width: 200px; /* 固定按钮宽度 */
+            height: 200px; /* 固定按钮高度 */
+            background-color: transparent;
+            color: #005f7f; /* 改变字体颜色与边框一致 */
+            text-decoration: none;
+            border: 2px solid #005f7f;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            margin-right: 0; /* 图片和按钮之间的间距 */
+        }
+
+        .button-container .button::before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-style: solid;
+        }
+
+        .button-container .button:nth-child(1)::before {
+            top: 0;
+            left: 0;
+            border-width: 80px 80px 0 0; /* 增大三角形大小 */
+            border-color: #005f7f transparent transparent transparent;
+        }
+
+        .button-container .button:nth-child(2)::before {
+            top: 0;
+            right: 0;
+            border-width: 80px 0 0 80px; /* 增大三角形大小 */
+            border-color: #005f7f transparent transparent transparent;
+        }
+
+        .button-container .button:nth-child(3)::before {
+            bottom: 0;
+            right: 0;
+            border-width: 0 80px 80px 0; /* 增大三角形大小 */
+            border-color: transparent transparent #005f7f transparent;
+        }
+
+        .button-container .button:nth-child(4)::before {
+            bottom: 0;
+            left: 0;
+            border-width: 0 0 80px 80px; /* 增大三角形大小 */
+            border-color: transparent transparent transparent #005f7f;
+        }
+
+        .button-wrapper img {
+            height: 200px; /* 固定图片高度 */
+            width: 800px; /* 固定图片宽度 */
+            object-fit: cover; /* 确保图片按比例填充 */
+            border: 2px solid #005f7f; /* 与按钮相同的边框 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .button-container .button:hover {
+            color: #007BFF;
+            border-color: #007BFF;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="top-bar">
+            <div class="logo">
+                <img src="/static/UIC.png" alt="联合国际学院"> <!-- 确保此处链接到你的Logo图片 -->
+            </div>
+            <div class="welcome-section">
+                <p>Welcome, {{ session['user_email'] }}!<br>Your type is: {{ session['user_type'] }}</p>
+            </div>
+        </div>
+        <div class="title-section">
+            <h1>UIC LLM Homework System</h1>
+            <a href="/user/login" class="logout-link">Logout</a>
+        </div>
+    </header>
+    <main>
+        <section class="video-section">
+            <video controls autoplay muted>
+                <source src="/static/Bridge to world.mp4" type="video/mp4"> <!-- 确保此处链接到你的本地视频文件 -->
+                Your browser does not support the video tag.
+            </video>
+        </section>
+
+        <div class="button-container">
+            <div class="button-wrapper">
+                <a href="/HelpTopic" class="button">Search Help Topics</a>
+                <img src="/static/1.png" alt="Image 1"> <!-- 插入图片 -->
+            </div>
+            <div class="button-wrapper">
+                <img src="/static/5.png" alt="Image 5"> <!-- 插入图片 -->
+                <a href="/personal_experiment" class="button">Personal Experiment</a>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>Thank you for using our platform!</p>
+    </footer>
+</body>
+</html>

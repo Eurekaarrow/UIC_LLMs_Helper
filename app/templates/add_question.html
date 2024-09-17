@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>create AssignQ</title>
+    <link rel="stylesheet" href="static/create_assignq.css">
+</head>
+<body>
+    <h1>Create Assignment Question</h1>
+    <form method="post" enctype="multipart/form-data">
+        <label for="qtext">Question Text:</label>
+        <input type="text" name="qtext" id="qtext" required><br>
+        <label for="category">Category:</label>
+        <input type="text" name="category" id="category" required><br>
+        <label for="course_id">Course:</label>
+        <select name="course_id" id="course_id" required>
+            {% for course in courses %}
+            <option value="{{ course.id }}">{{ course.Cname }}</option>
+            {% endfor %}
+        </select><br>
+        <label for="llm_used">LLM Used:</label>
+        <input type="text" name="llm_used" id="llm_used" required><br>
+        <label for="score">Score:</label>
+        <input type="number" name="score" id="score" required><br>
+        <label for="comment">Comment:</label>
+        <textarea name="comment" id="comment" required></textarea><br>
+        <label for="image">Upload Image:</label>
+        <input type="file" name="image" id="image" accept="image/png, image/jpeg"><br>
+        <button type="submit">Create</button>
+    </form>
+</body>
+</html>

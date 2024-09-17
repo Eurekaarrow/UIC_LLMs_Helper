@@ -1,0 +1,18 @@
+/* styles.css */
+
+/* 页面背景 */
+body {
+    background-color: #f4f4f4;
+}
+
+/* 卡片外观调整 */
+.card {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* 标题样式 */
+.card-header h1 {
+    margin: 0;
+    font-size: 1.8em;
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>F1</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Fullscreen Background Image */
+    .background-image {
+      background-image: url('{{ url_for("static", filename="bg.jpg") }}');
+      background-size: cover;
+      background-position: center;
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      position: relative;
+      text-decoration: none;
+    }
+
+    /* Background Overlay */
+    .background-overlay {
+      background-color: rgba(0, 0, 0, 0.6);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Stylish Title */
+    .title-content {
+      position: relative;
+      z-index: 1;
+      font-family: 'Arial', sans-serif;
+    }
+
+    h1 {
+      font-size: 4rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+    }
+  </style>
+</head>
+<body>
+
+<a href="{{ url_for('login') }}" class="background-image">
+  <div class="background-overlay"></div>
+  <div class="title-content">
+    <h1>UIC LLM Homework System</h1>
+    <h2>F1</h2>
+  </div>
+</a>
+
+<!-- Bootstrap JavaScript Bundle -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

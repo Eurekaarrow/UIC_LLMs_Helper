@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#sendLink').click(function(e) {
+                e.preventDefault();
+                var email = $('#email').val();
+                if (email) {
+                    $.post('{{ url_for('user.send_registration_link') }}', { email: email }, function(data) {
+                        alert(data.message);
+                    }).fail(function(response) {
+                        var responseJSON = response.responseJSON;
+                        if (responseJSON && responseJSON.message) {
+                            alert('Error: ' + responseJSON.message);
+                        } else {
+                            alert('An error occurred. Please try again.');
+                        }
+                    });
+                } else {
+                    alert('Please enter your email address to receive the registration link.');
+                }
+            });
+
+            $('#registerForm').submit(function(e) {
+                e.preventDefault();
+                var formData = $(this).serialize();
+                $.post($(this).attr('action'), formData, function(data) {
+                    alert(data.message);
+                    if (data.status === 'success') {
+                        window.location.href = '{{ url_for("user.login") }}';
+                    }
+                }).fail(function(response) {
+                    var responseJSON = response.responseJSON;
+                    if (responseJSON && responseJSON.message) {
+                        alert('Error: ' + responseJSON.message);
+                    } else {
+                        alert('An error occurred. Please try again.');
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    {% if not verification_mode %}
+        <form class="form-container">
+            <h1>Register</h1>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <button id="sendLink">Send Registration Link</button>
+            <p>Already have an account? <a href="{{ url_for('user.login') }}">Log in</a></p>
+        </form>
+    {% else %}
+        <form id="registerForm" action="{{ url_for('user.register') }}" method="post" class="form-container">
+            <h1>Register</h1>
+            <input type="hidden" id="email" name="email" value="{{ email }}" required>
+            <input type="hidden" id="verification_code" name="verification_code" value="{{ verification_code }}" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Register</button>
+            <p>Already have an account? <a href="{{ url_for('user.login') }}">Log in</a></p>
+        </form>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='details.css') }}">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            margin: 0; /* 将margin设为0以避免导航栏受影响 */
+            padding: 0;
+        }
+
+        .header {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #ffffff;
+            padding: 10px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .top-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background-color: #008d6e;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 15% 100%);
+            z-index: 0;
+        }
+
+        .logo img {
+            height: 120px; /* 放大Logo */
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="top-bar">
+            <div class="logo">
+                <img src="/static/UIC.png" alt="联合国际学院"> <!-- 确保此处链接到你的Logo图片 -->
+            </div>
+            <div class="welcome-section">
+                <p>Welcome, {{ session['user_email'] }}!<br>Your type is: {{ session['user_type'] }}</p>
+            </div>
+        </div>
+        <div class="title-section">
+            <h1>UIC LLM Homework System</h1>
+        </div>
+    </header>
+
+    <h1>Assignment Details</h1>
+
+    <h2>Qtext: {{ assignq.Qtext }}</h2>
+    <h3>LLM Answer ID: {{ llm_answer.LLM_id }}</h3>
+    <p>Used LLM: {{ llm_answer.LLM_used }}</p>
+    <p>Current Score: {{ llm_answer.score }}</p>
+    <p>Comment: {{ llm_answer.comment }}</p>
+
+    {% if llm_answer_image is not none %}
+        <p>Image Data: <img src="data:image/jpeg;base64,{{ llm_answer_image.image_data | b64encode }}"></p>
+    {% else %}
+        <p>No Image Data Available</p>
+    {% endif %}
+
+    <h4>Course Information</h4>
+    <p>Course Name: {{ course.course_name }}</p>
+    <p>Course Number: {{ course.course_number }}</p>
+    <p>Category: {{ course.course_category }}</p>
+
+    <h4>Score Change Logs:</h4>
+    {% for log in score_change_logs %}
+        <p>{{ log.changed_by }} changed score from {{ log.original_score }} to {{ log.new_score }}. Explanation: {{ log.explanation }}</p>
+    {% endfor %}
+</body>
+</html>

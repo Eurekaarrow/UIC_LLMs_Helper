@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#sendCode').click(function(e) {
+                e.preventDefault();
+                var email = $('#email').val();
+                if (email) {
+                    $.post('/user/send_verification_code', { email: email }, function(data) {
+                        alert(data.message);
+                    }).fail(function(response) {
+                        alert('Error: ' + response.responseText);
+                    });
+                } else {
+                    alert('Please enter your email address to receive the verification code.');
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <form action="/user/register" method="post" class="form-container">
+        <h1>Register</h1>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <button id="sendCode">Send Verification Code</button>
+        <label for="verification_code">Verification Code:</label>
+        <input type="text" id="verification_code" name="verification_code" required>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <button type="submit">Register</button>
+        <p>Already have an account? <a href="/user/login">Log in</a></p>
+    </form>
+</body>
+</html>

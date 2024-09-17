@@ -1,0 +1,60 @@
+/* 基本页面设置 */
+body {
+    font-family: Arial, sans-serif; /* 设置字体 */
+    background-color: #f4f4f4; /* 页面背景色 */
+    margin: 0;
+    padding: 20px;
+}
+
+/* 标题样式 */
+h1 {
+    color: #333;
+    text-align: center;
+}
+
+/* 表单样式 */
+form {
+    background-color: #fff; /* 表单背景色 */
+    padding: 20px;
+    max-width: 600px; /* 最大宽度 */
+    margin: 20px auto; /* 水平居中显示 */
+    border-radius: 8px; /* 边角圆滑 */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* 阴影效果 */
+}
+
+/* 标签样式 */
+label {
+    display: block; /* 使每个标签独占一行 */
+    margin-bottom: 5px; /* 标签下方空间 */
+    color: #666; /* 标签文字颜色 */
+}
+
+/* 输入框和下拉菜单样式 */
+input[type="text"],
+input[type="file"],
+select {
+    width: 100%; /* 宽度填满父容器 */
+    padding: 8px; /* 内边距 */
+    margin-bottom: 15px; /* 下方留白 */
+    border: 1px solid #ccc; /* 边框颜色 */
+    border-radius: 4px; /* 边角圆滑 */
+}
+
+/* 提交按钮样式 */
+input[type="submit"] {
+    background-color: #007bff; /* 背景颜色 */
+    color: white; /* 文字颜色 */
+    border: none; /* 无边框 */
+    padding: 10px 20px; /* 内边距 */
+    font-size: 16px; /* 字体大小 */
+    cursor: pointer; /* 鼠标样式 */
+    border-radius: 4px; /* 边角圆滑 */
+    display: block; /* 独占一行 */
+    width: 100%; /* 宽度填满父容器 */
+    box-sizing: border-box; /* 盒模型计算方式 */
+}
+
+/* 按钮鼠标悬浮样式 */
+input[type="submit"]:hover {
+    background-color: #0056b3; /* 鼠标悬浮时的背景颜色 */
+}
