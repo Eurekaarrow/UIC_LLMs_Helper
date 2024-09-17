@@ -5,7 +5,7 @@
 ---
 
 ## 📞 **Contact**
-If you have any questions, please contact Yuchen Guo at r130026037@mail.uic.edu.cn or eurekaarrow@gmail.com. You can also visit Yuchen Guo's personal [Homepage](eurekaarrow.github.io) eurekaarrow.github.io🌐.
+If you have any questions, please contact Yuchen Guo at r130026037@mail.uic.edu.cn or eurekaarrow@gmail.com. You can also visit Yuchen Guo's personal [Homepage](https://eurekaarrow.github.io) at eurekaarrow.github.io🌐.
 
 ---
 
