@@ -4,6 +4,11 @@
 
 ---
 
+## 📞 **Contact**
+If you have any questions, please contact Yuchen Guo at r130026037@mail.uic.edu.cn or eurekaarrow@gmail.com. You can also visit Yuchen Guo's personal homepage at eurekaarrow.github.io 🌐.
+
+---
+
 ## 📖 **Introduction**
 Recently Large Language Models (LLMs) such as ChatGPT by OpenAI have taken the world by storm.  Bill Gates said the ChatGPT demonstration he saw was, “the most stunning demo I’ve ever seen”.   Some education institutions such as New York City public schools  and UIC  banned, at least temporarily, the use of ChatGPT in the classroom, fearing students could do homework assignments using LLMs without learning the class material.
 
@@ -16,56 +21,52 @@ As an open-source project, it also serves as a valuable reference for future stu
 ---
 
 ## ✨ **Key Features**
-- ⚡ **功能 1**：描述第一个主要功能
-- 🛠️ **功能 2**：描述第二个主要功能
-- 🔒 **功能 3**：描述第三个主要功能
-- 🌍 **其他功能**：描述其他附加功能或特色
+
 
 ---
 
 ## 🛠️ **Installation**
+### 📥 **Download**
+Please download the homepage video using the following link:  
+[Download Video](https://drive.google.com/file/d/1eFBbLqNtMJAorYxUepGxbWP7NyaYu4fM/view?usp=sharing)
+
 ### 🔧 **Pre-request**
-- 📦 **依赖 1**：安装项目所需的依赖
-- 🖥️ **依赖 2**：运行项目的系统或环境要求
+- 📦 **Request 1**：Ensure you have your VPN configured and running if required for accessing certain resources. Follow your VPN provider’s instructions for setup.
+- 🖥️ **Request 2**: Python 3.x, pip (Python package installer), A web browser (Chrome is recommended for the best compatibility).
 
 ### 📦 **Steps**
 1. **Clone the repository**：
    ```bash
-   git clone https://github.com/yourusername/your-repo.git
+   git clone https://github.com/Eurekaarrow/UIC_LLMs_Helper.git
    ```
 2. **Install dependencies**：
    ```bash
    cd your-repo
-   npm install # 或者 pip install -r requirements.txt
-   ```
-
-3. **Run the project**：
-   ```bash
-   npm start # 或者 python main.py
+   pip install flask flask_sqlalchemy flask_mail
    ```
 
 ---
 
 ## 📊 **Usage**
 ```bash
-# 简单的使用案例或代码示例
-your_command_here --option value
+# run the flask framework in terminal
+python teamwork.py
 ```
-_可以附上一些实际效果的截图或 GIF 来展示项目的功能。_
+_Or you can run the `teamwork.py` in the Pycharm or VSCode_
 
 ---
 
 ## 🤝 **Contribution**
-🙌 欢迎对本项目进行贡献！你可以通过以下方式参与：
-1. **提交 Issue**：报告 Bug 或提出新功能建议
-2. **提交 Pull Request**：为项目代码贡献你的改进
+🙌 Contributions to this project are welcome! You can participate in the following ways:
+1. **Submit an Issue**：Report bugs or suggest new features.
+2. **Submit a Pull Request**：Contribute improvements to the project code.
 
 ---
 
 ## 📝 **License**
-本项目遵循 [MIT License](LICENSE) 开源许可证。请确保你了解其条款。
+This project is licensed under the [MIT License](LICENSE). Please make sure you understand its terms.
 
 ---
 
 ## 🏆 **Acknowledgement**
-感谢所有对本项目有贡献的人！特别鸣谢所有使用者和开源社区！💖
+Thank you to everyone who has contributed to this project! Special thanks to all users and the open-source community! We are Group F1. 💖
