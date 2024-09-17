@@ -1,4 +1,4 @@
-# 🚀 **Software Enginnering/Software Development Workshop** <!-- A Properly Using LLMs in Homework Assignment Helper System -->
+# 🚀 **Software Enginnering/Software Development Workshop: A Properly Using LLMs in Homework Assignment Helper System** <!-- A Properly Using LLMs in Homework Assignment Helper System -->
 
 > 🌟 **This is the BNU-HKBU UIC SE/SDW course project**
 
