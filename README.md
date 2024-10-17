@@ -90,7 +90,7 @@ or
 @inproceedings{guo2024properly,  
     author = {Yuchen Guo},  
     title = {A Properly Using LLMs in Homework Assignment Helper System},  
-    booktitle = {UIC LLMs Helper},  
+    website = {Github},  
     year = {2024},
     month = {Aug}
     url = {https://github.com/Eurekaarrow/UIC_LLMs_Helper}  
