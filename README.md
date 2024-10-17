@@ -79,10 +79,14 @@ If you have any questions, please contact Yuchen Guo at r130026037@mail.uic.edu.
 
 ## 📚 **Citation**
 If you use this project in your research or work, please cite it as follows:
+
+```plaintext
 Guo, Yuchen. (Aug 2024). A Properly Using LLMs in Homework Assignment Helper System. Github. https://github.com/Eurekaarrow/UIC_LLMs_Helper
+```
 
 or
 
+```plaintext
 @inproceedings{guo2024properly,  
     author = {Yuchen Guo},  
     title = {A Properly Using LLMs in Homework Assignment Helper System},  
@@ -91,4 +95,5 @@ or
     month = {Aug}
     url = {https://github.com/Eurekaarrow/UIC_LLMs_Helper}  
 }
+```
 
