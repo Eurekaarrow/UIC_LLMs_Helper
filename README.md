@@ -4,10 +4,6 @@
 
 ---
 
-## 📞 **Contact**
-If you have any questions, please contact Yuchen Guo at r130026037@mail.uic.edu.cn or eurekaarrow@gmail.com. You can also visit Yuchen Guo's personal [Homepage](https://eurekaarrow.github.io) at eurekaarrow.github.io🌐.
-
----
 
 ## 📖 **Introduction**
 Recently Large Language Models (LLMs) such as ChatGPT by OpenAI have taken the world by storm.  Bill Gates said the ChatGPT demonstration he saw was, “the most stunning demo I’ve ever seen”.   Some education institutions such as New York City public schools  and UIC  banned, at least temporarily, the use of ChatGPT in the classroom, fearing students could do homework assignments using LLMs without learning the class material.
@@ -73,3 +69,26 @@ This project is licensed under the [MIT License](LICENSE). Please make sure you 
 
 ## 🏆 **Acknowledgement**
 Thank you to everyone who has contributed to this project! Special thanks to all users and the open-source community! We are Group F1. 💖
+
+---
+
+## 📞 **Contact**
+If you have any questions, please contact Yuchen Guo at r130026037@mail.uic.edu.cn or eurekaarrow@gmail.com. You can also visit Yuchen Guo's personal [Homepage](https://eurekaarrow.github.io) at eurekaarrow.github.io🌐.
+
+---
+
+## 📚 **Citation**
+If you use this project in your research or work, please cite it as follows:
+Guo, Yuchen. (Aug 2024). A Properly Using LLMs in Homework Assignment Helper System. Github. https://github.com/Eurekaarrow/UIC_LLMs_Helper
+
+or
+
+@inproceedings{guo2024properly,  
+    author = {Yuchen Guo},  
+    title = {A Properly Using LLMs in Homework Assignment Helper System},  
+    booktitle = {UIC LLMs Helper},  
+    year = {2024},
+    month = {Aug}
+    url = {https://github.com/Eurekaarrow/UIC_LLMs_Helper}  
+}
+
